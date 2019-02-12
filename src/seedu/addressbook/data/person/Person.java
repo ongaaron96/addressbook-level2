@@ -1,5 +1,6 @@
 package seedu.addressbook.data.person;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -88,4 +89,12 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    public static Comparator<Person> NameComparator = new Comparator<Person>() {
+        public int compare(Person p1, Person p2) {
+            String pname1 = p1.getName().toString().toUpperCase();
+            String pname2 = p2.getName().toString().toUpperCase();
+
+            return pname1.compareTo(pname2);
+        }
+    };
 }
